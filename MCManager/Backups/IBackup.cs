@@ -9,5 +9,9 @@ namespace MCManager.Backups
     public interface IBackup
     {
         void Extract();
+
+        string GetName();
+
+        string GetBackupType();
     }
 }

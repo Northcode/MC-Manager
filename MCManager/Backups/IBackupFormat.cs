@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MCManager.Backups
 {
-    internal interface IBackupFormat
+    public interface IBackupFormat
     {
         IBackup Load(string file);
 
