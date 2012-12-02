@@ -16,7 +16,7 @@ namespace MCManager
 
             foreach (Type t in assembly.GetTypes())
             {
-                if (t.IsAssignableFrom(typeof(IBackupFormat)))
+                if (typeof(IBackupFormat).IsAssignableFrom(t))
                 {
                     IBackupFormat format = Activator.CreateInstance(t) as IBackupFormat;
                     BackupLoader.formats.Add(format);

@@ -12,12 +12,12 @@ namespace MCManager
     {
         internal static List<IBackupFormat> formats = new List<IBackupFormat>();
 
-        public void AddFormat(IBackupFormat format)
+        public static void AddFormat(IBackupFormat format)
         {
             formats.Add(format);
         }
 
-        public List<IBackup> loadbackups()
+        public static List<IBackup> LoadBackups()
         {
             List<IBackup> backups = new List<IBackup>();
 
@@ -25,6 +25,7 @@ namespace MCManager
             {
                 BinaryReader br = new BinaryReader(new FileStream(file, FileMode.Open));
                 byte sig = br.ReadByte();
+                br.Close();
                 foreach (IBackupFormat format in formats)
                 {
                     if (format.getSignature() == sig)
@@ -38,7 +39,7 @@ namespace MCManager
             return backups;
         }
 
-        public void SaveBackups(List<IBackup> backups)
+        public static void SaveBackups(List<IBackup> backups)
         {
             foreach (IBackup backup in backups)
             {

@@ -17,6 +17,8 @@ namespace MCManager
 
         public static string pluginfolder = jevofolder + "plugins\\";
 
+        public static string logininfo = jevofolder + "login.dat";
+
         public static string minecraftexe = jevofolder + "Minecraft.exe";
 
         public static string minecraftdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\";
@@ -40,7 +42,7 @@ namespace MCManager
             if (!File.Exists(minecraftexe))
             {
                 WebClient wc = new WebClient();
-                wc.DownloadFileAsync(new Uri("https://s3.amazonaws.com/MinecraftDownload/launcher/Minecraft.exe"), minecraftexe);
+                wc.DownloadFileAsync(new Uri("http://northcode.no/Files/minecraftlauncher/Minecraft.exe"), minecraftexe);
             }
             if (!Directory.Exists(minecraftdir))
             {
