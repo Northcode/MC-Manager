@@ -11,5 +11,7 @@ namespace MCManager
         public static string backupdir = jevofolder + "backups\\";
 
         public static string jevofolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.jevo\\";
+
+        public static string minecraftbin = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\bin\\";
     }
 }
