@@ -19,7 +19,7 @@ namespace MCManager
             return str == "success";
         }
 
-        public void Error(string msg)
+        public static void Error(string msg)
         {
             MessageBox.Show(msg, "Error!");
         }
