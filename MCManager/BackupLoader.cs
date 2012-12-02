@@ -23,6 +23,16 @@ namespace MCManager
 
             foreach (string file in Directory.GetFiles(Data.backupdir))
             {
+                BinaryReader br = new BinaryReader(new FileStream(file, FileMode.Open));
+                byte sig = br.ReadByte();
+                foreach (IBackupFormat format in formats)
+                {
+                    if (format.getSignature() == sig)
+                    {
+                        IBackup backup = format.Load(file);
+                        backups.Add(backup);
+                    }
+                }
             }
 
             return backups;
