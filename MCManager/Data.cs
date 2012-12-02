@@ -8,8 +8,8 @@ namespace MCManager
 {
     public static class Data
     {
-        internal static string backupdir = "";
+        public static string backupdir = jevofolder + "backups\\";
 
-        internal static string jevofolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.jevo";
+        public static string jevofolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.jevo\\";
     }
 }
