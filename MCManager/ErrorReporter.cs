@@ -4,6 +4,7 @@ using System.Linq;
 using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace MCManager
 {
@@ -16,6 +17,11 @@ namespace MCManager
         {
             string str = wc.DownloadString(new Uri(url + "e=" + message.Replace("&", "§§")));
             return str == "success";
+        }
+
+        public void Error(string msg)
+        {
+            MessageBox.Show(msg, "Error!");
         }
     }
 }

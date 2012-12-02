@@ -37,5 +37,14 @@ namespace MCManager
 
             return backups;
         }
+
+        public void SaveBackups(List<IBackup> backups)
+        {
+            foreach (IBackup backup in backups)
+            {
+                IBackupFormat format = backup.GetFormat();
+                format.Save(backup.GetFilePath(), backup);
+            }
+        }
     }
 }
