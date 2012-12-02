@@ -15,5 +15,7 @@ namespace MCManager.Backups
         byte getSignature();
 
         IBackup CreateBackup();
+
+        string GetFormatName();
     }
 }
