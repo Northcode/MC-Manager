@@ -28,23 +28,23 @@ namespace MCManager
             if (!Directory.Exists(jevofolder))
             {
                 Directory.CreateDirectory(jevofolder);
-                if (!Directory.Exists(backupdir))
-                {
-                    Directory.CreateDirectory(backupdir);
-                }
-                if (!Directory.Exists(pluginfolder))
-                {
-                    Directory.CreateDirectory(pluginfolder);
-                }
-                if (!File.Exists(minecraftexe))
-                {
-                    WebClient wc = new WebClient();
-                    byte[] mcdata = wc.DownloadData(new Uri("https://s3.amazonaws.com/MinecraftDownload/launcher/Minecraft.exe"));
-                }
-                if (!Directory.Exists(minecraftdir))
-                {
-                    MessageBox.Show("Please start minecraft once to generate the folders", "Minecraft folders missing!");
-                }
+            }
+            if (!Directory.Exists(backupdir))
+            {
+                Directory.CreateDirectory(backupdir);
+            }
+            if (!Directory.Exists(pluginfolder))
+            {
+                Directory.CreateDirectory(pluginfolder);
+            }
+            if (!File.Exists(minecraftexe))
+            {
+                WebClient wc = new WebClient();
+                wc.DownloadFileAsync(new Uri("https://s3.amazonaws.com/MinecraftDownload/launcher/Minecraft.exe"), minecraftexe);
+            }
+            if (!Directory.Exists(minecraftdir))
+            {
+                MessageBox.Show("Please start minecraft once to generate the folders", "Minecraft folders missing!");
             }
         }
     }

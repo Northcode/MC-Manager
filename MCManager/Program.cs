@@ -15,7 +15,7 @@ namespace MCManager
         private static void Main()
         {
             Data.CheckStartupFolders();
-
+            PluginLoader.LoadPlugins();
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new Form1());
