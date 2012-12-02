@@ -7,3 +7,6 @@ C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe
 C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.pdb
 C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.exe
 C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.pdb
+C:\Users\Jens\Documents\Visual Studio 2010\Projects\MC-Manager\MCManager\bin\Debug\MCManager.exe.config
+C:\Users\Jens\Documents\Visual Studio 2010\Projects\MC-Manager\MCManager\obj\Debug\MCManager.exe
+C:\Users\Jens\Documents\Visual Studio 2010\Projects\MC-Manager\MCManager\obj\Debug\MCManager.pdb
