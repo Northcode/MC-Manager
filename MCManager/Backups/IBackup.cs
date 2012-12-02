@@ -17,5 +17,7 @@ namespace MCManager.Backups
         string GetBackupType();
 
         IBackupFormat GetFormat();
+
+        string GetFilePath();
     }
 }
