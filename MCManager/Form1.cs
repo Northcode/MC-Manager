@@ -72,7 +72,7 @@ namespace MCManager
             cbxNewBackup.Items.Add("New Backup");
             foreach (IBackupFormat format in BackupLoader.formats)
             {
-                cbxNewBackup.Items.Add(format.GetType().Name);
+                cbxNewBackup.Items.Add(format.GetFormatName());
             }
             cbxNewBackup.SelectedIndex = 0;
             UpdateBackupList();
@@ -97,7 +97,7 @@ namespace MCManager
             treeView1.Nodes.Clear();
             foreach (IBackupFormat format in BackupLoader.formats)
             {
-                TreeNode node = new TreeNode(format.GetType().Name);
+                TreeNode node = new TreeNode(format.GetFormatName());
                 foreach (IBackup backup in DataHolder.GetBackups())
                 {
                     if (backup.GetFormat().GetType() == format.GetType())
@@ -122,19 +122,43 @@ namespace MCManager
 
         private void button1_Click(object sender, EventArgs e)
         {
-            string param = "";
-            if (DataHolder.HasLoginInfo)
+            Process[] javas;
+
+            bool start = true;
+
+            if ((javas = Process.GetProcessesByName("javaw")).Length > 0)
             {
-                param += DataHolder.GetLoginInfo().GetName() + " " + DataHolder.GetLoginInfo().GetDecryptedPassword();
+                foreach (Process p in javas)
+                {
+                    if (p.MainWindowTitle.Equals("minecraft", StringComparison.CurrentCultureIgnoreCase))
+                    {
+                        start = false;
+                        if (MessageBox.Show("Minecraft is allready running, do you want to close it before restarting. \r\nIf no minecraft will not start a second time.", "Minecraft is allready running", MessageBoxButtons.YesNo) == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            p.Kill();
+                            start = true;
+                        }
+                        break;
+                    }
+                }
             }
-            if (checkBox1.Checked)
+
+            if (start)
             {
-                Directory.Delete(Data.minecraftbin, true);
+                string param = "";
+                if (DataHolder.HasLoginInfo)
+                {
+                    param += DataHolder.GetLoginInfo().GetName() + " " + DataHolder.GetLoginInfo().GetDecryptedPassword();
+                }
+                if (checkBox1.Checked)
+                {
+                    Directory.Delete(Data.minecraftbin, true);
+                }
+                else
+                {
+                }
+                Process.Start(Data.minecraftexe, param);
             }
-            else
-            {
-            }
-            Process.Start(Data.minecraftexe, param);
         }
     }
 }
