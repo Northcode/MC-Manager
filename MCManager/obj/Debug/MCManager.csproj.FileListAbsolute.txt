@@ -7,3 +7,13 @@ C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe
 C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.pdb
 C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.exe
 C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.pdb
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe.config
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.exe
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.pdb
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.pdb
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Form1.resources
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Properties.Resources.resources
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\GenerateResource.write.1.tlog
