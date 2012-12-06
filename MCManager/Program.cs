@@ -40,7 +40,7 @@ namespace MCManager
             }
             else
             {
-                File.Delete(Data.logininfo);
+                if (File.Exists(Data.logininfo)) File.Delete(Data.logininfo);
             }
         }
     }
