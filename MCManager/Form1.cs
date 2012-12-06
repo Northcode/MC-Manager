@@ -112,6 +112,7 @@ namespace MCManager
         private void btnRestoreBackup_Click(object sender, EventArgs e)
         {
             DataHolder.GetBackups().FindAll(b => treeView1.SelectedNode.Text == b.GetName()).ForEach(b => b.Extract());
+            MessageBox.Show("Backup restored");
         }
 
         private void button4_Click(object sender, EventArgs e)
@@ -122,6 +123,7 @@ namespace MCManager
 
         private void button1_Click(object sender, EventArgs e)
         {
+            throw new Exception("TEST ERROR");
             Process[] javas;
 
             bool start = true;

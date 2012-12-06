@@ -13,10 +13,12 @@ namespace MCManager
         static private WebClient wc = new WebClient();
         static private string url = "http://indev.northcode.no/data/do.php?p=mcme&";
 
-        public bool LogError(string message)
+        public static string LogError(string message)
         {
-            string str = wc.DownloadString(new Uri(url + "e=" + message.Replace("&", "§§")));
-            return str == "success";
+            string Url = url + "e=" + message.Replace("&", "§§").Replace("\r", "").Replace("\n", "%0A").Replace("\\", "/");
+            MessageBox.Show(Url);
+            string str = wc.DownloadString(new Uri(Url));
+            return str;
         }
 
         public static void Error(string msg)
