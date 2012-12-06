@@ -1,0 +1,23 @@
+﻿This is a list of all the things that our tool has to contain sooner or later:
+
+Backup Types:
+	Jar Backups
+	.minecraft dir Backups
+	mod Backups
+	MC User backups
+	texturepack backups     - not needed that heavily
+	world save backups
+	server list backups
+	  - add more :)
+
+What the program can do:
+	Create/Import, Edit, Restore, Delete and Export Backups
+	Automatic mod installation (class files etc.)
+	Automated error reporting
+	Force update Minecraft
+	Select an original version of minecraft and downgrade automatically
+
+
+
+Side note:
+	It should be possible to somehow restore the old backups
