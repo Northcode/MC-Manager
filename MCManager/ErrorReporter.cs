@@ -16,7 +16,6 @@ namespace MCManager
         public static string LogError(string message)
         {
             string Url = url + "e=" + message.Replace("&", "§§").Replace("\r", "").Replace("\n", "%0A").Replace("\\", "/");
-            MessageBox.Show(Url);
             string str = wc.DownloadString(new Uri(Url));
             return str;
         }
