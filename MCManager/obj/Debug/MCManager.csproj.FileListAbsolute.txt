@@ -1,30 +1,9 @@
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe.config
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.csprojResolveAssemblyReference.cache
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Form1.resources
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Properties.Resources.resources
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.csproj.GenerateResource.Cache
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.pdb
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.exe
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.pdb
-<<<<<<< HEAD
-C:\Users\Andreas\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.ErrorPage.resources
-=======
-C:\Users\Jens\Documents\Visual Studio 2010\Projects\MC-Manager\MCManager\bin\Debug\MCManager.exe.config
-C:\Users\Jens\Documents\Visual Studio 2010\Projects\MC-Manager\MCManager\obj\Debug\MCManager.exe
-C:\Users\Jens\Documents\Visual Studio 2010\Projects\MC-Manager\MCManager\obj\Debug\MCManager.pdb
->>>>>>> Jens
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe.config
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.exe
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.pdb
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.pdb
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Form1.resources
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Properties.Resources.resources
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\GenerateResource.read.1.tlog
-C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\GenerateResource.write.1.tlog
->>>>>>> 1d8904604404505c28099eb58e375d1546129ded
 J:\Desktop\MC-Manager\MCManager\bin\Debug\MCManager.exe.config
+J:\Desktop\MC-Manager\MCManager\bin\Debug\MCManager.exe
+J:\Desktop\MC-Manager\MCManager\bin\Debug\MCManager.pdb
+J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.ErrorPage.resources
+J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.Form1.resources
+J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.Properties.Resources.resources
+J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.csproj.GenerateResource.Cache
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.exe
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.pdb
