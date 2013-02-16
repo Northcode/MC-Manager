@@ -39,6 +39,16 @@ namespace MCManager
             bw.Close();
         }
 
+        public byte[] SaveToMemory()
+        {
+            MemoryStream ms = new MemoryStream();
+            BinaryWriter bw = new BinaryWriter(ms);
+            bw.Write(name);
+            bw.Write(password);
+            bw.Close();
+            return ms.ToArray();
+        }
+
         public string GetPassword()
         {
             return password;
@@ -47,6 +57,17 @@ namespace MCManager
         internal static LoginInfo Load(string path)
         {
             BinaryReader br = new BinaryReader(new FileStream(path, FileMode.Open));
+            LoginInfo li = new LoginInfo();
+            li.name = br.ReadString();
+            li.password = br.ReadString();
+            br.Close();
+            return li;
+        }
+
+        public static LoginInfo LoadFromMemory(byte[] data)
+        {
+            MemoryStream ms = new MemoryStream(data);
+            BinaryReader br = new BinaryReader(ms);
             LoginInfo li = new LoginInfo();
             li.name = br.ReadString();
             li.password = br.ReadString();

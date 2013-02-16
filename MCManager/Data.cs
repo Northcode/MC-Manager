@@ -11,15 +11,15 @@ namespace MCManager
 {
     public static class Data
     {
-        public static string jevofolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.mcm\\";
+        public static string appdatafolder = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.mcm\\";
 
-        public static string backupdir = jevofolder + "backups\\";
+        public static string backupdir = appdatafolder + "backups\\";
 
-        public static string pluginfolder = jevofolder + "plugins\\";
+        public static string pluginfolder = appdatafolder + "plugins\\";
 
-        public static string logininfo = jevofolder + "login.dat";
+        public static string logininfo = appdatafolder + "login.dat";
 
-        public static string minecraftexe = jevofolder + "Minecraft.exe";
+        public static string minecraftexe = appdatafolder + "Minecraft.exe";
 
         public static string minecraftdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\";
 
@@ -27,9 +27,9 @@ namespace MCManager
 
         internal static void CheckStartupFolders()
         {
-            if (!Directory.Exists(jevofolder))
+            if (!Directory.Exists(appdatafolder))
             {
-                Directory.CreateDirectory(jevofolder);
+                Directory.CreateDirectory(appdatafolder);
             }
             if (!Directory.Exists(backupdir))
             {
