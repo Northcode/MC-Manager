@@ -39,7 +39,10 @@ namespace MCManager
 
         private void InputBox_FormClosing(object sender, FormClosingEventArgs e)
         {
-            this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            if (e.CloseReason == CloseReason.UserClosing)
+            {
+                this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            }
         }
     }
 }
