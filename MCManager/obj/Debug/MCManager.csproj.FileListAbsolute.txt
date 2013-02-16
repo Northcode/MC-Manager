@@ -7,3 +7,4 @@ J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.Properties.Resources.resourc
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.csproj.GenerateResource.Cache
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.exe
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.pdb
+J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.csprojResolveAssemblyReference.cache

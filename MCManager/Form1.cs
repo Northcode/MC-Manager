@@ -29,9 +29,13 @@ namespace MCManager
             }
             else if (tabControl1.SelectedIndex == 1)
             {
-                Size = new Size(850, 500);
+                Size = new Size(404, 390);
             }
             else if (tabControl1.SelectedIndex == 2)
+            {
+                Size = new Size(850, 500);
+            }
+            else if (tabControl1.SelectedIndex == 3)
             {
                 Size = new Size(240, 310);
                 CheckLoginInfo();
@@ -75,7 +79,8 @@ namespace MCManager
                 cbxNewBackup.Items.Add(format.GetFormatName());
             }
             cbxNewBackup.SelectedIndex = 0;
-            UpdateBackupList();
+            UpdateBackupList(); 
+            UpdatePluginList();
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -98,11 +103,14 @@ namespace MCManager
             foreach (IBackupFormat format in BackupLoader.formats)
             {
                 TreeNode node = new TreeNode(format.GetFormatName());
+                node.ToolTipText = format.GetFormatName();
                 foreach (IBackup backup in DataHolder.GetBackups())
                 {
                     if (backup.GetFormat().GetType() == format.GetType())
                     {
-                        node.Nodes.Add(backup.GetName());
+                        TreeNode n = new TreeNode(backup.GetName());
+                        n.ToolTipText = backup.GetDescription();
+                        node.Nodes.Add(n);
                     }
                 }
                 treeView1.Nodes.Add(node);
@@ -159,6 +167,34 @@ namespace MCManager
                 {
                 }
                 Process.Start(Data.minecraftexe, param);
+            }
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog of = new OpenFileDialog();
+            of.Filter = "Dll files | *.dll";
+            of.ShowDialog();
+            if (File.Exists(of.FileName))
+            {
+                PluginLoader.LoadPlugin(of.FileName);
+                File.Copy(of.FileName, Data.pluginfolder + Path.GetFileName(of.FileName));
+                UpdatePluginList();
+                MessageBox.Show("Plugin loaded! To load backups of this format, please restart the program.");
+            }
+        }
+
+        private void UpdatePluginList()
+        {
+            listPlugins.Items.Clear();
+            foreach (IBackupFormat format in BackupLoader.formats)
+            {
+                listPlugins.Items.Add(format.GetFormatName() + " with sig: " + format.getSignature());
             }
         }
     }
