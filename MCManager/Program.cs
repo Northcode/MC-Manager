@@ -24,15 +24,15 @@ namespace MCManager
             DataHolder.SetBackups(BackupLoader.LoadBackups());
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            try
-            {
+            //try
+            //{
                 Application.Run(new Form1());
-            }
-            catch (Exception ex)
-            {
-                ErrorPage ep = new ErrorPage(ex.ToString());
-                Application.Run(ep);
-            }
+            //}
+            //catch (Exception ex)
+            //{
+            //    ErrorPage ep = new ErrorPage(ex.ToString());
+            //    Application.Run(ep);
+            //}
             BackupLoader.SaveBackups(DataHolder.GetBackups());
             if (DataHolder.HasLoginInfo)
             {
