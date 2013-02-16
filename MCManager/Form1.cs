@@ -183,7 +183,7 @@ namespace MCManager
             if (File.Exists(of.FileName))
             {
                 PluginLoader.LoadPlugin(of.FileName);
-                File.Copy(of.FileName, Data.pluginfolder + Path.GetFileName(of.FileName));
+                File.Copy(of.FileName, Data.pluginfolder + Path.GetFileName(of.FileName),true);
                 UpdatePluginList();
                 MessageBox.Show("Plugin loaded! To load backups of this format, please restart the program.");
             }
