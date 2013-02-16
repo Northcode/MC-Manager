@@ -11,12 +11,12 @@ namespace MCManager
         private string name;
         private string password;
 
-        internal string GetName()
+        public string GetName()
         {
             return name;
         }
 
-        internal string GetDecryptedPassword()
+        public string GetDecryptedPassword()
         {
             return Crypto.DecryptStringAES(password, name);
         }
