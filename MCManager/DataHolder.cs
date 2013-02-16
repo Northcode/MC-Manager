@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using MCManager.Backups;
+using MCManager.Plugin_API;
+using System.Reflection;
 
 namespace MCManager
 {
@@ -11,6 +13,7 @@ namespace MCManager
     {
         private static LoginInfo login;
         private static List<IBackup> backups = new List<IBackup>();
+        private static List<IUpdater> updaters = new List<IUpdater>();
 
         public static void AddBackup(IBackup backup)
         {
@@ -66,6 +69,16 @@ namespace MCManager
             {
                 return login != null;
             }
+        }
+
+        public static void CheckForUpdates()
+        {
+
+        }
+
+        internal static void AddUpdater(IUpdater updater)
+        {
+            updaters.Add(updater);
         }
     }
 }

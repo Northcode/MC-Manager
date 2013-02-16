@@ -25,6 +25,10 @@ namespace MCManager
 
         public static string minecraftbin = minecraftdir + "bin\\";
 
+        public static string versionpath = "https://raw.github.com/Northcode/MC-Manager/master/MCManager/ver.txt";
+
+        public static string updatepath = "https://github.com/Northcode/MC-Manager/raw/master/MCManager/bin/Debug/MCManager.exe";
+
         internal static void CheckStartupFolders()
         {
             if (!Directory.Exists(appdatafolder))
@@ -48,6 +52,11 @@ namespace MCManager
             {
                 MessageBox.Show("Please start minecraft once to generate the folders", "Minecraft folders missing!");
             }
+        }
+
+        internal static void CheckForUpdate()
+        {
+
         }
     }
 }
