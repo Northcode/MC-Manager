@@ -25,3 +25,6 @@ C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Properti
 C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\GenerateResource.read.1.tlog
 C:\Users\jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\GenerateResource.write.1.tlog
 >>>>>>> 1d8904604404505c28099eb58e375d1546129ded
+J:\Desktop\MC-Manager\MCManager\bin\Debug\MCManager.exe.config
+J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.exe
+J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.pdb
