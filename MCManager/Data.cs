@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Net;
 using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace MCManager
@@ -24,10 +21,18 @@ namespace MCManager
         public static string minecraftdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\";
 
         public static string minecraftbin = minecraftdir + "bin\\";
+        
+        public static string versionpath = appdatafolder + "version.txt";
+        
+        public static string versionurl = "https://raw.github.com/Northcode/MC-Manager/master/MCManager/ver.txt";
 
-        public static string versionpath = "https://raw.github.com/Northcode/MC-Manager/master/MCManager/ver.txt";
+        public static string updateurl = "https://github.com/Northcode/MC-Manager/raw/master/MCManager/bin/Debug/MCManager.exe";
 
-        public static string updatepath = "https://github.com/Northcode/MC-Manager/raw/master/MCManager/bin/Debug/MCManager.exe";
+        public static string updateConfig = appdatafolder + "update.conf";
+
+        public static string updaterExe = appdatafolder + "update.exe";
+
+        public static StringBuilder updateData = new StringBuilder();
 
         internal static void CheckStartupFolders()
         {
@@ -52,11 +57,38 @@ namespace MCManager
             {
                 MessageBox.Show("Please start minecraft once to generate the folders", "Minecraft folders missing!");
             }
+            if (!File.Exists(versionpath))
+            {
+                File.WriteAllText(versionpath, "0.0");
+            }
+            if (!File.Exists(updaterExe))
+            {
+                WebClient wc = new WebClient();
+                wc.DownloadFileAsync(new Uri("HTTP"), updaterExe);
+            }
         }
 
         internal static void CheckForUpdate()
         {
+            WebClient wc = new WebClient();
+            string remoteVersion = wc.DownloadString(versionurl);
+            string localVersion = File.ReadAllText(versionpath);
+            if (remoteVersion != localVersion)
+            {
+                DialogResult r = MessageBox.Show("New Update Available! Download?", "Update", MessageBoxButtons.YesNo);
+                if (r == DialogResult.Yes)
+                {
+                    updateData.AppendLine("UPDATE;MCM;" + Application.StartupPath + ";" + updateurl);
+                }
+            }
+        }
 
+        internal static void PreformUpdate()
+        {
+            if (updateData.ToString() != "")
+            {
+                File.WriteAllText(updateConfig, updateData.ToString());
+            }
         }
     }
 }

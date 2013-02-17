@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using MCManager.Backups;
 using MCManager.Plugin_API;
-using System.Reflection;
 
 namespace MCManager
 {
@@ -79,6 +76,19 @@ namespace MCManager
         internal static void AddUpdater(IUpdater updater)
         {
             updaters.Add(updater);
+        }
+
+        internal static void UpdatePlugins()
+        {
+            StringBuilder sb = new StringBuilder(File.ReadAllText(Data.updateConfig));
+            foreach (IUpdater updater in updaters)
+            {
+                if (updater.CheckForUpdates())
+                {
+                    sb.AppendLine("UPDATE;PLUGIN;" + updater.GetLocalPath() + ";" + updater.GetUpdatePath());
+                }
+            }
+            File.WriteAllText(Data.updateConfig, sb.ToString());
         }
     }
 }

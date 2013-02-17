@@ -10,5 +10,7 @@ namespace MCManager.Plugin_API
         bool CheckForUpdates();
 
         string GetUpdatePath();
+
+        string GetLocalPath();
     }
 }

@@ -17,6 +17,9 @@ namespace MCManager
         {
             Data.CheckStartupFolders();
             PluginLoader.LoadPlugins();
+            Data.CheckForUpdate();
+            DataHolder.CheckForUpdates();
+            Data.PreformUpdate();
             if (File.Exists(Data.logininfo))
             {
                 DataHolder.SetLoginInfo(LoginInfo.Load(Data.logininfo));

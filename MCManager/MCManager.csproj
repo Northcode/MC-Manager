@@ -47,8 +47,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackupLoader.cs" />
-    <Compile Include="Backups\IBackup.cs" />
-    <Compile Include="Backups\IBackupFormat.cs" />
+    <Compile Include="Plugin API\IBackup.cs" />
+    <Compile Include="Plugin API\IBackupFormat.cs" />
     <Compile Include="Data.cs" />
     <Compile Include="DataHolder.cs" />
     <Compile Include="Encryption.cs" />
@@ -72,6 +72,7 @@
       <DependentUpon>InputBox.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginInfo.cs" />
+    <Compile Include="Plugin API\IUpdater.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -106,6 +107,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ver.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
