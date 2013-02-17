@@ -12,5 +12,7 @@ namespace MCManager.Plugin_API
         string GetUpdatePath();
 
         string GetLocalPath();
+
+        void SetPath(string file);
     }
 }

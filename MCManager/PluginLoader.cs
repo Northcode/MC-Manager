@@ -25,6 +25,7 @@ namespace MCManager
                 if (typeof(IUpdater).IsAssignableFrom(t))
                 {
                     IUpdater updater = Activator.CreateInstance(t) as IUpdater;
+                    updater.SetPath(file);
                     DataHolder.AddUpdater(updater);
                 }
             }
