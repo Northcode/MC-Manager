@@ -41,7 +41,7 @@ namespace MCManager
         {
             if (e.CloseReason == CloseReason.UserClosing)
             {
-                this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+                //this.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             }
         }
     }
