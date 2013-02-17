@@ -7,9 +7,9 @@ using System.Windows.Forms;
 
 namespace MCManager
 {
-    public partial class Form1 : Form
+    public partial class MainWindow : Form
     {
-        public Form1()
+        public MainWindow()
         {
             InitializeComponent();
             Size = new Size(404, 390);
@@ -36,7 +36,7 @@ namespace MCManager
             }
         }
 
-        private void CheckLoginInfo()
+        public void CheckLoginInfo()
         {
             if (DataHolder.HasLoginInfo)
             {
@@ -91,7 +91,7 @@ namespace MCManager
             }
         }
 
-        private void UpdateBackupList()
+        public void UpdateBackupList()
         {
             treeView1.Nodes.Clear();
             foreach (IBackupFormat format in BackupLoader.formats)
@@ -190,13 +190,28 @@ namespace MCManager
             }
         }
 
-        private void UpdatePluginList()
+        public void UpdatePluginList()
         {
             listPlugins.Items.Clear();
             foreach (IBackupFormat format in BackupLoader.formats)
             {
                 listPlugins.Items.Add(format.GetFormatName() + " with sig: " + format.getSignature());
             }
+        }
+
+        public void AddTab(string tabName)
+        {
+            tabControl1.TabPages.Add(tabName, tabName);
+        }
+
+        public void RemoveTab(string tabName)
+        {
+            tabControl1.TabPages.RemoveByKey(tabName);
+        }
+
+        public TabPage GetTab(string tabName)
+        {
+            return tabControl1.TabPages[tabName];
         }
     }
 }

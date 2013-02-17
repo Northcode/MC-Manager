@@ -11,6 +11,7 @@ namespace MCManager
         private static LoginInfo login;
         private static List<IBackup> backups = new List<IBackup>();
         private static List<IUpdater> updaters = new List<IUpdater>();
+        internal static MainWindow mainWindow;
 
         public static void AddBackup(IBackup backup)
         {
@@ -82,6 +83,11 @@ namespace MCManager
                     Data.updateData.AppendLine("UPDATE;PLUGIN;" + updater.GetLocalPath() + ";" + updater.GetUpdatePath());
                 }
             }
+        }
+
+        public static MainWindow GetMainWindow()
+        {
+            return mainWindow;
         }
     }
 }
