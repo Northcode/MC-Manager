@@ -25,7 +25,7 @@ namespace MCMUpdate
             }
         }
 
-        void Update()
+        private void button1_Click(object sender, EventArgs e)
         {
             WebClient wc = new WebClient();
             int i = 0;

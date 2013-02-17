@@ -24,15 +24,17 @@ namespace MCManager
         
         public static string versionpath = appdatafolder + "version.txt";
         
-        public static string versionurl = "https://raw.github.com/Northcode/MC-Manager/master/MCManager/ver.txt";
+        public const string versionurl = "https://raw.github.com/Northcode/MC-Manager/master/MCManager/ver.txt";
 
-        public static string updateurl = "https://github.com/Northcode/MC-Manager/raw/master/MCManager/bin/Debug/MCManager.exe";
+        public const string updateurl = "https://github.com/Northcode/MC-Manager/raw/master/MCManager/bin/Debug/MCManager.exe";
 
         public static string updateConfig = appdatafolder + "update.conf";
 
         public static string updaterExe = appdatafolder + "update.exe";
 
         public static StringBuilder updateData = new StringBuilder();
+
+        public const string updateExeUrl = "https://github.com/Northcode/MC-Manager/raw/master/MCMUpdate/bin/Debug/MCMUpdate.exe";
 
         internal static void CheckStartupFolders()
         {
@@ -64,7 +66,7 @@ namespace MCManager
             if (!File.Exists(updaterExe))
             {
                 WebClient wc = new WebClient();
-                wc.DownloadFileAsync(new Uri("HTTP"), updaterExe);
+                wc.DownloadFileAsync(new Uri(updateExeUrl), updaterExe);
             }
         }
 
