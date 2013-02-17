@@ -20,9 +20,9 @@ namespace MCManager
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Data.CheckStartupFolders();
+            PluginLoader.LoadPlugins();
             if (MessageBox.Show("Check for updates?", "Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                PluginLoader.LoadPlugins();
                 Data.CheckForUpdate();
                 DataHolder.UpdatePlugins();
                 Data.PreformUpdate();
@@ -44,7 +44,8 @@ namespace MCManager
             DataHolder.SetBackups(BackupLoader.LoadBackups());
             //try
             //{
-                Application.Run(new Form1());
+                DataHolder.mainWindow = new MainWindow();
+                Application.Run(DataHolder.mainWindow);
             //}
             //catch (Exception ex)
             //{
