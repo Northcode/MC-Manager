@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
-using System.Linq;
 using System.Text;
 using MCManager.Backups;
+using MCManager.Plugin_API;
 
 namespace MCManager
 {
@@ -11,6 +10,7 @@ namespace MCManager
     {
         private static LoginInfo login;
         private static List<IBackup> backups = new List<IBackup>();
+        private static List<IUpdater> updaters = new List<IUpdater>();
 
         public static void AddBackup(IBackup backup)
         {
@@ -65,6 +65,22 @@ namespace MCManager
             get
             {
                 return login != null;
+            }
+        }
+
+        internal static void AddUpdater(IUpdater updater)
+        {
+            updaters.Add(updater);
+        }
+
+        internal static void UpdatePlugins()
+        {
+            foreach (IUpdater updater in updaters)
+            {
+                if (updater.CheckForUpdates())
+                {
+                    Data.updateData.AppendLine("UPDATE;PLUGIN;" + updater.GetLocalPath() + ";" + updater.GetUpdatePath());
+                }
             }
         }
     }

@@ -1,0 +1,8 @@
+J:\Desktop\MC-Manager\MCMUpdate\bin\Debug\MCMUpdate.exe.config
+J:\Desktop\MC-Manager\MCMUpdate\bin\Debug\MCMUpdate.exe
+J:\Desktop\MC-Manager\MCMUpdate\bin\Debug\MCMUpdate.pdb
+J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.Form1.resources
+J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.Properties.Resources.resources
+J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.csproj.GenerateResource.Cache
+J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.exe
+J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.pdb

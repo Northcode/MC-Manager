@@ -5,6 +5,7 @@ using System.Linq;
 using System.Reflection;
 using System.Text;
 using MCManager.Backups;
+using MCManager.Plugin_API;
 
 namespace MCManager
 {
@@ -20,6 +21,12 @@ namespace MCManager
                 {
                     IBackupFormat format = Activator.CreateInstance(t) as IBackupFormat;
                     BackupLoader.formats.Add(format);
+                }
+                if (typeof(IUpdater).IsAssignableFrom(t))
+                {
+                    IUpdater updater = Activator.CreateInstance(t) as IUpdater;
+                    updater.SetPath(file);
+                    DataHolder.AddUpdater(updater);
                 }
             }
         }
