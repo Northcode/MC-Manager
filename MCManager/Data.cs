@@ -21,8 +21,8 @@ namespace MCManager
         public static string minecraftdir = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.minecraft\\";
 
         public static string minecraftbin = minecraftdir + "bin\\";
-        
-        public static string versionpath = appdatafolder + "version.txt";
+
+        public const string VERSION = "0.41";
         
         public const string versionurl = "https://raw.github.com/Northcode/MC-Manager/master/MCManager/ver.txt";
 
@@ -59,10 +59,6 @@ namespace MCManager
             {
                 MessageBox.Show("Please start minecraft once to generate the folders", "Minecraft folders missing!");
             }
-            if (!File.Exists(versionpath))
-            {
-                File.WriteAllText(versionpath, "0.0");
-            }
             if (!File.Exists(updaterExe))
             {
                 WebClient wc = new WebClient();
@@ -74,8 +70,7 @@ namespace MCManager
         {
             WebClient wc = new WebClient();
             string remoteVersion = wc.DownloadString(versionurl);
-            string localVersion = File.ReadAllText(versionpath);
-            if (remoteVersion != localVersion)
+            if (remoteVersion != VERSION)
             {
                 updateData.AppendLine("UPDATE;MCM;" + Application.ExecutablePath + ";" + updateurl);
             }
