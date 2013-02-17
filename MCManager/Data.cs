@@ -77,11 +77,7 @@ namespace MCManager
             string localVersion = File.ReadAllText(versionpath);
             if (remoteVersion != localVersion)
             {
-                DialogResult r = MessageBox.Show("New Update Available! Download?", "Update", MessageBoxButtons.YesNo);
-                if (r == DialogResult.Yes)
-                {
-                    updateData.AppendLine("UPDATE;MCM;" + Application.StartupPath + ";" + updateurl);
-                }
+                updateData.AppendLine("UPDATE;MCM;" + Application.ExecutablePath + ";" + updateurl);
             }
         }
 

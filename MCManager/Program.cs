@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -18,8 +20,18 @@ namespace MCManager
             Data.CheckStartupFolders();
             PluginLoader.LoadPlugins();
             Data.CheckForUpdate();
-            DataHolder.CheckForUpdates();
+            DataHolder.UpdatePlugins();
             Data.PreformUpdate();
+            if (Data.updateData.ToString() != "")
+            {
+                DialogResult r = MessageBox.Show("New Update Available! Download?", "Update", MessageBoxButtons.YesNo);
+                if (r == DialogResult.Yes)
+                {
+                    Process.Start(Data.updaterExe);
+                    Thread.Sleep(100);
+                    return;
+                }
+            }
             if (File.Exists(Data.logininfo))
             {
                 DataHolder.SetLoginInfo(LoginInfo.Load(Data.logininfo));

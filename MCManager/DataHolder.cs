@@ -68,11 +68,6 @@ namespace MCManager
             }
         }
 
-        public static void CheckForUpdates()
-        {
-
-        }
-
         internal static void AddUpdater(IUpdater updater)
         {
             updaters.Add(updater);
@@ -80,15 +75,13 @@ namespace MCManager
 
         internal static void UpdatePlugins()
         {
-            StringBuilder sb = new StringBuilder(File.ReadAllText(Data.updateConfig));
             foreach (IUpdater updater in updaters)
             {
                 if (updater.CheckForUpdates())
                 {
-                    sb.AppendLine("UPDATE;PLUGIN;" + updater.GetLocalPath() + ";" + updater.GetUpdatePath());
+                    Data.updateData.AppendLine("UPDATE;PLUGIN;" + updater.GetLocalPath() + ";" + updater.GetUpdatePath());
                 }
             }
-            File.WriteAllText(Data.updateConfig, sb.ToString());
         }
     }
 }
