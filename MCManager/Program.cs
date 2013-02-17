@@ -17,11 +17,16 @@ namespace MCManager
         [STAThread]
         private static void Main()
         {
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Data.CheckStartupFolders();
-            PluginLoader.LoadPlugins();
-            Data.CheckForUpdate();
-            DataHolder.UpdatePlugins();
-            Data.PreformUpdate();
+            if (MessageBox.Show("Check for updates?", "Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                PluginLoader.LoadPlugins();
+                Data.CheckForUpdate();
+                DataHolder.UpdatePlugins();
+                Data.PreformUpdate();
+            }
             if (Data.updateData.ToString() != "")
             {
                 DialogResult r = MessageBox.Show("New Update Available! Download?", "Update", MessageBoxButtons.YesNo);
@@ -37,8 +42,6 @@ namespace MCManager
                 DataHolder.SetLoginInfo(LoginInfo.Load(Data.logininfo));
             }
             DataHolder.SetBackups(BackupLoader.LoadBackups());
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
             //try
             //{
                 Application.Run(new Form1());
