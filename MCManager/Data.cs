@@ -22,7 +22,7 @@ namespace MCManager
 
         public static string minecraftbin = minecraftdir + "bin\\";
 
-        public const string VERSION = "0.6";
+        public const string VERSION = "0.61";
         
         public const string versionurl = "https://raw.github.com/Northcode/MC-Manager/master/MCManager/ver.txt";
 

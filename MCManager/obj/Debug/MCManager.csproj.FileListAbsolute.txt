@@ -20,3 +20,4 @@ J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.csproj.GenerateResource.Cach
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.exe
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.pdb
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.MainWindow.resources
+J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.LoginInput.resources
