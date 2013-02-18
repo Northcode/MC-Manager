@@ -3,6 +3,7 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace MCManager
@@ -212,6 +213,23 @@ namespace MCManager
         public TabPage GetTab(string tabName)
         {
             return tabControl1.TabPages[tabName];
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            WebClient wc = new WebClient();
+            string loginURI = String.Format("http://login.minecraft.net/?user={0}&password={1}&version=14", DataHolder.GetLoginInfo().GetName(), DataHolder.GetLoginInfo().GetDecryptedPassword());
+            string str = wc.DownloadString(loginURI);
+
+            if (str != "Bad login")
+            {
+                string[] args = str.Split(':');
+
+                Process mc = new Process();
+                mc.StartInfo.FileName = "java.exe";
+                mc.StartInfo.Arguments = String.Format("-Xincgc -Xmx1024m -cp \"" + Data.minecraftbin + "minecraft.jar;" + Data.minecraftbin + "lwjgl.jar;" + Data.minecraftbin + "lwjgl_util.jar;" + Data.minecraftbin + "jinput.jar\" -Djava.library.path=\"" + Data.minecraftbin + "natives\" net.minecraft.client.Minecraft {0} {1}", args[2], args[3]);
+                mc.Start();
+            }
         }
     }
 }
