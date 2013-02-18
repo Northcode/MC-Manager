@@ -230,18 +230,29 @@ namespace MCManager
                     return;
                 }
             }
-            WebClient wc = new WebClient();
-            string loginURI = String.Format("http://login.minecraft.net/?user={0}&password={1}&version=14", li.GetName(), li.GetDecryptedPassword());
-            string str = wc.DownloadString(loginURI);
-
-            if (str != "Bad login")
+            try
             {
-                string[] args = str.Split(':');
+                WebClient wc = new WebClient();
+                string loginURI = String.Format("http://login.minecraft.net/?user={0}&password={1}&version=14", li.GetName(), li.GetDecryptedPassword());
+                string str = wc.DownloadString(loginURI);
 
-                Process mc = new Process();
-                mc.StartInfo.FileName = "java.exe";
-                mc.StartInfo.Arguments = String.Format("-Xincgc -Xmx1024m -cp \"" + Data.minecraftbin + "minecraft.jar;" + Data.minecraftbin + "lwjgl.jar;" + Data.minecraftbin + "lwjgl_util.jar;" + Data.minecraftbin + "jinput.jar\" -Djava.library.path=\"" + Data.minecraftbin + "natives\" net.minecraft.client.Minecraft {0} {1}", args[2], args[3]);
-                mc.Start();
+                if (str != "Bad login")
+                {
+                    string[] args = str.Split(':');
+
+                    Process mc = new Process();
+                    mc.StartInfo.FileName = "java.exe";
+                    mc.StartInfo.Arguments = String.Format("-Xincgc -Xmx1024m -cp \"" + Data.minecraftbin + "minecraft.jar;" + Data.minecraftbin + "lwjgl.jar;" + Data.minecraftbin + "lwjgl_util.jar;" + Data.minecraftbin + "jinput.jar\" -Djava.library.path=\"" + Data.minecraftbin + "natives\" net.minecraft.client.Minecraft {0} {1}", args[2], args[3]);
+                    mc.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Login! try again...");
+                }
+            }
+            catch (WebException ex)
+            {
+                MessageBox.Show("Can't connect to login.minecraft.net, try again later or start with launcher to play offline\r\nMore information: " + ex.ToString());
             }
         }
 
