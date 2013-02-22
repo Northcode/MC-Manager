@@ -53,6 +53,7 @@
     <Compile Include="LoginInput.Designer.cs">
       <DependentUpon>LoginInput.cs</DependentUpon>
     </Compile>
+    <Compile Include="Plugin API\Config.cs" />
     <Compile Include="Plugin API\IBackup.cs" />
     <Compile Include="Plugin API\IBackupFormat.cs" />
     <Compile Include="Data.cs" />

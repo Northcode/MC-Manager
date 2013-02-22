@@ -21,3 +21,15 @@ J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.exe
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.pdb
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.MainWindow.resources
 J:\Desktop\MC-Manager\MCManager\obj\Debug\MCManager.LoginInput.resources
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\bin\Debug\MCManager.exe.config
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.exe
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.pdb
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\bin\Debug\MCManager.exe
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\bin\Debug\MCManager.pdb
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.csprojResolveAssemblyReference.cache
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.ErrorPage.resources
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.MainWindow.resources
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.InputBox.resources
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.LoginInput.resources
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.Properties.Resources.resources
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.csproj.GenerateResource.Cache
