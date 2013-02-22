@@ -38,8 +38,11 @@
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel1 = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.listPlugins = new System.Windows.Forms.ListBox();
             this.tabPage4 = new System.Windows.Forms.TabPage();
             this.webBrowser1 = new System.Windows.Forms.WebBrowser();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -50,17 +53,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtLoginPassword = new System.Windows.Forms.TextBox();
             this.txtLoginName = new System.Windows.Forms.TextBox();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.listPlugins = new System.Windows.Forms.ListBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.button2 = new System.Windows.Forms.Button();
+            this.cbxMCStart = new System.Windows.Forms.ComboBox();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            this.tabPage2.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -150,12 +150,11 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(220, 267);
             this.treeView1.TabIndex = 1;
-            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // panel1
             // 
+            this.panel1.Controls.Add(this.cbxMCStart);
             this.panel1.Controls.Add(this.checkBox1);
-            this.panel1.Controls.Add(this.button1);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -166,22 +165,12 @@
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(266, 14);
+            this.checkBox1.Location = new System.Drawing.Point(277, 14);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(95, 17);
             this.checkBox1.TabIndex = 2;
             this.checkBox1.Text = "Force update?";
             this.checkBox1.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(173, 9);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(91, 25);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "Start Minecraft";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // label1
             // 
@@ -192,6 +181,49 @@
             this.label1.Size = new System.Drawing.Size(168, 22);
             this.label1.TabIndex = 0;
             this.label1.Text = "Backup Manager";
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.button2);
+            this.tabPage2.Controls.Add(this.label5);
+            this.tabPage2.Controls.Add(this.listPlugins);
+            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage2.Size = new System.Drawing.Size(380, 326);
+            this.tabPage2.TabIndex = 3;
+            this.tabPage2.Text = "Plugin Manager";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(166, 35);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(206, 23);
+            this.button2.TabIndex = 2;
+            this.button2.Text = "Import format";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.Location = new System.Drawing.Point(8, 14);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(117, 18);
+            this.label5.TabIndex = 1;
+            this.label5.Text = "Backup formats:";
+            // 
+            // listPlugins
+            // 
+            this.listPlugins.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.listPlugins.FormattingEnabled = true;
+            this.listPlugins.ItemHeight = 17;
+            this.listPlugins.Location = new System.Drawing.Point(11, 35);
+            this.listPlugins.Name = "listPlugins";
+            this.listPlugins.Size = new System.Drawing.Size(149, 242);
+            this.listPlugins.TabIndex = 0;
             // 
             // tabPage4
             // 
@@ -299,57 +331,28 @@
             this.txtLoginName.Size = new System.Drawing.Size(127, 20);
             this.txtLoginName.TabIndex = 1;
             // 
-            // tabPage2
+            // cbxMCStart
             // 
-            this.tabPage2.Controls.Add(this.button2);
-            this.tabPage2.Controls.Add(this.label5);
-            this.tabPage2.Controls.Add(this.listPlugins);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
-            this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(380, 326);
-            this.tabPage2.TabIndex = 3;
-            this.tabPage2.Text = "Plugin Manager";
-            this.tabPage2.UseVisualStyleBackColor = true;
+            this.cbxMCStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMCStart.FormattingEnabled = true;
+            this.cbxMCStart.Items.AddRange(new object[] {
+            "Start Minecraft",
+            "without Launcher"});
+            this.cbxMCStart.Location = new System.Drawing.Point(177, 12);
+            this.cbxMCStart.Name = "cbxMCStart";
+            this.cbxMCStart.Size = new System.Drawing.Size(94, 21);
+            this.cbxMCStart.TabIndex = 3;
+            this.cbxMCStart.SelectedIndexChanged += new System.EventHandler(this.cbxMCStart_SelectedIndexChanged);
+            this.cbxMCStart.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbxMCStart_MouseDoubleClick);
             // 
-            // listPlugins
-            // 
-            this.listPlugins.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.listPlugins.FormattingEnabled = true;
-            this.listPlugins.ItemHeight = 17;
-            this.listPlugins.Location = new System.Drawing.Point(11, 35);
-            this.listPlugins.Name = "listPlugins";
-            this.listPlugins.Size = new System.Drawing.Size(149, 242);
-            this.listPlugins.TabIndex = 0;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.Location = new System.Drawing.Point(8, 14);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(117, 18);
-            this.label5.TabIndex = 1;
-            this.label5.Text = "Backup formats:";
-            // 
-            // button2
-            // 
-            this.button2.Location = new System.Drawing.Point(166, 35);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(206, 23);
-            this.button2.TabIndex = 2;
-            this.button2.Text = "Import format";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // Form1
+            // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(388, 352);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
-            this.Name = "Form1";
+            this.Name = "MainWindow";
             this.Text = "MC Manager";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.tabControl1.ResumeLayout(false);
@@ -358,11 +361,11 @@
             this.panel2.PerformLayout();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
             this.tabPage4.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            this.tabPage2.ResumeLayout(false);
-            this.tabPage2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -380,7 +383,6 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button btnRestoreBackup;
         private System.Windows.Forms.TreeView treeView1;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.Label label4;
@@ -395,6 +397,7 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listPlugins;
+        private System.Windows.Forms.ComboBox cbxMCStart;
     }
 }
 

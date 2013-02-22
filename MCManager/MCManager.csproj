@@ -47,6 +47,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackupLoader.cs" />
+    <Compile Include="LoginInput.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginInput.Designer.cs">
+      <DependentUpon>LoginInput.cs</DependentUpon>
+    </Compile>
     <Compile Include="Plugin API\IBackup.cs" />
     <Compile Include="Plugin API\IBackupFormat.cs" />
     <Compile Include="Data.cs" />
@@ -84,6 +90,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="InputBox.resx">
       <DependentUpon>InputBox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginInput.resx">
+      <DependentUpon>LoginInput.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

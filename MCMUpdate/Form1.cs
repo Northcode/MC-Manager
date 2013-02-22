@@ -38,10 +38,6 @@ namespace MCMUpdate
                     textBox1.AppendText("Updating: " + (updateInfo[1] == "MCM" ? "Manager" : "Plugin: " + updateInfo[2]) + "\n");
                     textBox1.AppendText("Downloading: " + updateInfo[3] + "\n");
                     wc.DownloadFile(updateInfo[3], updateInfo[2]);
-                    if (updateInfo[1] == "MCM")
-                    {
-                        wc.DownloadFile("https://raw.github.com/Northcode/MC-Manager/master/MCManager/ver.txt","C:\\Users\\Andreas\\AppData\\Roaming\\.mcm\\version.txt");
-                    }
                     textBox1.AppendText("Downloaded!");
                     progressBar1.Value = i / updateData.Length * 100;
                 }

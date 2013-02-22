@@ -3,12 +3,15 @@ using System;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Net;
 using System.Windows.Forms;
 
 namespace MCManager
 {
     public partial class MainWindow : Form
     {
+        bool cbxMCLoaded = false;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -73,6 +76,8 @@ namespace MCManager
                 cbxNewBackup.Items.Add(format.GetFormatName());
             }
             cbxNewBackup.SelectedIndex = 0;
+            cbxMCStart.SelectedIndex = 0;
+            cbxMCLoaded = true;
             UpdateBackupList(); 
             UpdatePluginList();
         }
@@ -123,7 +128,7 @@ namespace MCManager
             UpdateBackupList();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        public void StartMinecraftWithLauncher()
         {
             Process[] javas;
 
@@ -162,11 +167,6 @@ namespace MCManager
                 }
                 Process.Start(Data.minecraftexe, param);
             }
-        }
-
-        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
-        {
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -212,6 +212,78 @@ namespace MCManager
         public TabPage GetTab(string tabName)
         {
             return tabControl1.TabPages[tabName];
+        }
+
+        public void StartMinecraftWithoutLauncher()
+        {
+            LoginInfo li;
+            if (DataHolder.HasLoginInfo)
+            {
+                li = DataHolder.GetLoginInfo();
+            }
+            else
+            {
+                li = LoginInput.Show();
+                if (li == null)
+                {
+                    MessageBox.Show("Please type in username and password!", "Login Error");
+                    return;
+                }
+            }
+            try
+            {
+                WebClient wc = new WebClient();
+                string loginURI = String.Format("http://login.minecraft.net/?user={0}&password={1}&version=14", li.GetName(), li.GetDecryptedPassword());
+                string str = wc.DownloadString(loginURI);
+
+                if (str != "Bad login")
+                {
+                    string[] args = str.Split(':');
+
+                    Process mc = new Process();
+                    mc.StartInfo.FileName = "java.exe";
+                    mc.StartInfo.Arguments = String.Format("-Xincgc -Xmx1024m -cp \"" + Data.minecraftbin + "minecraft.jar;" + Data.minecraftbin + "lwjgl.jar;" + Data.minecraftbin + "lwjgl_util.jar;" + Data.minecraftbin + "jinput.jar\" -Djava.library.path=\"" + Data.minecraftbin + "natives\" net.minecraft.client.Minecraft {0} {1}", args[2], args[3]);
+                    mc.Start();
+                }
+                else
+                {
+                    MessageBox.Show("Invalid Login! try again...");
+                }
+            }
+            catch (WebException ex)
+            {
+                MessageBox.Show("Can't connect to login.minecraft.net, try again later or start with launcher to play offline\r\nMore information: " + ex.ToString());
+            }
+        }
+
+        private void cbxMCStart_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cbxMCLoaded)
+            {
+                if (cbxMCStart.SelectedIndex == 0)
+                {
+                    StartMinecraftWithLauncher();
+                }
+                else if (cbxMCStart.SelectedIndex == 1)
+                {
+                    StartMinecraftWithoutLauncher();
+                }
+            }
+        }
+
+        private void cbxMCStart_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (cbxMCLoaded)
+            {
+                if (cbxMCStart.SelectedIndex == 0)
+                {
+                    StartMinecraftWithLauncher();
+                }
+                else if (cbxMCStart.SelectedIndex == 1)
+                {
+                    StartMinecraftWithoutLauncher();
+                }
+            }
         }
     }
 }
