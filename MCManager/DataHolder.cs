@@ -95,7 +95,7 @@ namespace MCManager
 
         public static Config GetConfig()
         {
-            return config;
+            return config; 
         }
 
         public static Config GetConfig(string name)

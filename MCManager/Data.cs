@@ -22,7 +22,7 @@ namespace MCManager
 
         public static string minecraftbin = minecraftdir + "bin\\";
 
-        public const string VERSION = "0.62";
+        public const string VERSION = v.G_VERSION;
 
         public static string configpath = appdatafolder + "config.xml";
         
