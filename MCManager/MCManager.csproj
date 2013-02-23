@@ -83,6 +83,7 @@
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="version.cs" />
     <EmbeddedResource Include="ErrorPage.resx">
       <DependentUpon>ErrorPage.cs</DependentUpon>
     </EmbeddedResource>
@@ -119,6 +120,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="buildactions.py" />
     <Content Include="ver.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
