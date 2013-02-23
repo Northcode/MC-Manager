@@ -21,7 +21,7 @@ namespace MCManager
 
         }
 
-        public static LoginInfo Show()
+        public new static LoginInfo Show()
         {
             LoginInput frm = new LoginInput();
             DialogResult r = frm.ShowDialog();

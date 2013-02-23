@@ -66,6 +66,10 @@ namespace MCManager
                 WebClient wc = new WebClient();
                 wc.DownloadFileAsync(new Uri(updateExeUrl), updaterExe);
             }
+            if (!File.Exists(updateConfig))
+            {
+                File.WriteAllText(updateConfig,"<config></config>");
+            }
         }
 
         internal static void CheckForUpdate()
