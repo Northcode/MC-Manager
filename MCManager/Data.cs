@@ -66,9 +66,9 @@ namespace MCManager
                 WebClient wc = new WebClient();
                 wc.DownloadFileAsync(new Uri(updateExeUrl), updaterExe);
             }
-            if (!File.Exists(updateConfig))
+            if (!File.Exists(configpath))
             {
-                File.WriteAllText(updateConfig,"<config></config>");
+                File.WriteAllText(configpath, "<config><node name=\"main\"></node></config>");
             }
         }
 

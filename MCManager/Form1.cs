@@ -1,5 +1,7 @@
 ﻿using MCManager.Backups;
+using MCManager.Plugin_API;
 using System;
+using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
@@ -20,19 +22,15 @@ namespace MCManager
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 0)
+            if (tabControl1.SelectedIndex == 0 || tabControl1.SelectedIndex == 1 || tabControl1.SelectedIndex == 2)
             {
                 Size = new Size(404, 390);
             }
-            else if (tabControl1.SelectedIndex == 1)
-            {
-                Size = new Size(404, 390);
-            }
-            else if (tabControl1.SelectedIndex == 2)
+            else if (tabControl1.SelectedIndex == 3)
             {
                 Size = new Size(850, 500);
             }
-            else if (tabControl1.SelectedIndex == 3)
+            else if (tabControl1.SelectedIndex == 4)
             {
                 Size = new Size(240, 310);
                 CheckLoginInfo();
@@ -80,6 +78,16 @@ namespace MCManager
             cbxMCLoaded = true;
             UpdateBackupList(); 
             UpdatePluginList();
+            UpdateConfigList();
+        }
+
+        public void UpdateConfigList()
+        {
+            lstConfigs.Items.Clear();
+            foreach (Plugin_API.Config con in DataHolder.GetConfigs())
+            {
+                lstConfigs.Items.Add(con.GetName());
+            }
         }
 
         private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
@@ -103,14 +111,17 @@ namespace MCManager
             {
                 TreeNode node = new TreeNode(format.GetFormatName());
                 node.ToolTipText = format.GetFormatName();
+                int i = 0;
                 foreach (IBackup backup in DataHolder.GetBackups())
                 {
                     if (backup.GetFormat().GetType() == format.GetType())
                     {
                         TreeNode n = new TreeNode(backup.GetName());
                         n.ToolTipText = backup.GetDescription();
+                        n.Tag = i;
                         node.Nodes.Add(n);
                     }
+                    i++;
                 }
                 treeView1.Nodes.Add(node);
             }
@@ -284,6 +295,80 @@ namespace MCManager
                     StartMinecraftWithoutLauncher();
                 }
             }
+        }
+
+        private void lstConfigs_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Dictionary<string,object> map = MapConfig(DataHolder.GetConfig(lstConfigs.SelectedItem.ToString()));
+            propertyGrid1.SelectedObject = new DictionaryPropertyGridAdapter<string,object>(map);
+        }
+
+        private Dictionary<string, object> MapConfig(Config config)
+        {
+            Dictionary<string, object> result = new Dictionary<string, object>();
+            foreach (KeyValuePair<string,Tuple<Config.Type,object>> item in config.GetAll())
+            {
+                result.Add(item.Key, item.Value.Item2);
+            }
+            return result;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            DictionaryPropertyGridAdapter<string, object> data = propertyGrid1.SelectedObject as DictionaryPropertyGridAdapter<string, object>;
+            if (data != null)
+            {
+                Dictionary<string,object> mapped = data.GetDictionary();
+                Dictionary<string,Tuple<Config.Type,object>> unmapped = ReverseConfigMap(mapped);
+                DataHolder.GetConfig(lstConfigs.SelectedItem.ToString()).SetAll(unmapped);
+            }
+        }
+
+        private Dictionary<string,Tuple<Config.Type,object>> ReverseConfigMap(Dictionary<string, object> mapped)
+        {
+            Dictionary<string, Tuple<Config.Type, object>> result = new Dictionary<string, Tuple<Config.Type, object>>();
+            foreach (KeyValuePair<string,object> item in mapped)
+            {
+                result.Add(item.Key, new Tuple<Config.Type, object>(GetConfigTypeOf(item.Value), item.Value));
+            }
+            return result;
+        }
+
+        private Config.Type GetConfigTypeOf(object p)
+        {
+            if (p.GetType() == typeof(bool))
+            {
+                return Config.Type.Bool;
+            }
+            else if (p.GetType() == typeof(double))
+            {
+                return Config.Type.Decimal;
+            }
+            else if (p.GetType() == typeof(int))
+            {
+                return Config.Type.Integer;
+            }
+            else if (p.GetType() == typeof(string))
+            {
+                return Config.Type.Text;
+            }
+            else
+            {
+                throw new Exception("Unknown Config type:" + p.GetType());
+            }
+        }
+
+        private void treeView1_AfterSelect(object sender, TreeViewEventArgs e)
+        {
+            if (treeView1.SelectedNode.Tag != null && treeView1.SelectedNode.Tag is int)
+            {
+                textBox1.Text = DataHolder.GetBackups()[(int)treeView1.SelectedNode.Tag].GetDescription();
+            }
+        }
+
+        private void panel2_Paint(object sender, PaintEventArgs e)
+        {
+            label7.Text = "MCManager - Version: " + Data.VERSION;
         }
     }
 }
