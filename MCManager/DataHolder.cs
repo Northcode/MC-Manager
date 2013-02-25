@@ -3,6 +3,7 @@ using System.IO;
 using System.Text;
 using MCManager.Backups;
 using MCManager.Plugin_API;
+using System.Xml;
 
 namespace MCManager
 {
@@ -12,6 +13,8 @@ namespace MCManager
         private static List<IBackup> backups = new List<IBackup>();
         private static List<IUpdater> updaters = new List<IUpdater>();
         internal static MainWindow mainWindow;
+        private static Config config = new Config("main");
+        private static List<Config> pluginConfigs = new List<Config>();
 
         public static void AddBackup(IBackup backup)
         {
@@ -88,6 +91,27 @@ namespace MCManager
         public static MainWindow GetMainWindow()
         {
             return mainWindow;
+        }
+
+        public static Config GetConfig()
+        {
+            return config; 
+        }
+
+        public static Config GetConfig(string name)
+        {
+            return pluginConfigs.Find(p => p.GetName() == name);
+        }
+
+        public static void RemoveConfig(string name)
+        {
+            pluginConfigs.RemoveAll(p => p.GetName() == name);
+        }
+
+        public static void LoadConfigs()
+        {
+            XmlReader xmlr = XmlReader.Create(new FileStream(Data.configpath,FileMode.Open));
+            
         }
     }
 }
