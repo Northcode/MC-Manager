@@ -103,6 +103,14 @@ namespace MCManager
             return configs.Find(p => p.GetName() == name);
         }
 
+        public static void AddConfig(Config config)
+        {
+            if (!configs.Contains(config))
+            {
+                configs.Add(config);
+            }
+        }
+
         public static void RemoveConfig(string name)
         {
             configs.RemoveAll(p => p.GetName() == name);
