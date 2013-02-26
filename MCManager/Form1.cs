@@ -299,8 +299,11 @@ namespace MCManager
 
         private void lstConfigs_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Dictionary<string,object> map = MapConfig(DataHolder.GetConfig(lstConfigs.SelectedItem.ToString()));
-            propertyGrid1.SelectedObject = new DictionaryPropertyGridAdapter<string,object>(map);
+            if (lstConfigs.SelectedItem != null)
+            {
+                Dictionary<string, object> map = MapConfig(DataHolder.GetConfig(lstConfigs.SelectedItem.ToString()));
+                propertyGrid1.SelectedObject = new DictionaryPropertyGridAdapter<string, object>(map);
+            }
         }
 
         private Dictionary<string, object> MapConfig(Config config)
