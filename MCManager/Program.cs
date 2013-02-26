@@ -21,7 +21,12 @@ namespace MCManager
             Application.SetCompatibleTextRenderingDefault(false);
             Data.CheckStartupFolders();
             PluginLoader.LoadPlugins();
-            if (MessageBox.Show("Check for updates?", "Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            DataHolder.LoadConfigs();
+            if (!DataHolder.GetConfig().Has("autoupdate"))
+            {
+                DataHolder.GetConfig().Set("autoupdate", Plugin_API.Config.Type.Bool, false);
+            }
+            if ((bool)DataHolder.GetConfig().Get("autoupdate"))
             {
                 Data.CheckForUpdate();
                 DataHolder.UpdatePlugins();
@@ -61,6 +66,7 @@ namespace MCManager
             {
                 if (File.Exists(Data.logininfo)) File.Delete(Data.logininfo);
             }
+            DataHolder.SaveConfigs();
         }
     }
 }

@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Text;
 
@@ -48,6 +50,11 @@ namespace MCManager.Plugin_API
             }
         }
 
+        public bool Has(string key)
+        {
+            return data.ContainsKey(key);
+        }
+
         public void Remove(string key)
         {
             data.Remove(key);
@@ -71,7 +78,7 @@ namespace MCManager.Plugin_API
             xml.AppendLine(String.Format("<node name=\"{0}\">", name));
             foreach (KeyValuePair<string,Tuple<Type,object>> item in data)
             {
-                xml.AppendLine(String.Format("<item key=\"{0}\">{1}</item>", item.Key, item.Value.ToString()));
+                xml.AppendLine(String.Format("<item key=\"{0}\" type=\"{1}\">{2}</item>", item.Key, item.Value.Item1.ToString(), item.Value.Item2.ToString()));
             }
             xml.AppendLine("</node>");
             return xml.ToString();
@@ -80,6 +87,16 @@ namespace MCManager.Plugin_API
         internal string GetName()
         {
             return name;
+        }
+
+        internal Dictionary<string, Tuple<Type, object>> GetAll()
+        {
+            return data;
+        }
+
+        internal void SetAll(Dictionary<string, Tuple<Type, object>> unmapped)
+        {
+            data = unmapped;
         }
     }
 }

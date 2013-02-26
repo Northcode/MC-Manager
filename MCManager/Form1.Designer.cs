@@ -37,6 +37,7 @@
             this.btnRestoreBackup = new System.Windows.Forms.Button();
             this.treeView1 = new System.Windows.Forms.TreeView();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.cbxMCStart = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -53,7 +54,12 @@
             this.label2 = new System.Windows.Forms.Label();
             this.txtLoginPassword = new System.Windows.Forms.TextBox();
             this.txtLoginName = new System.Windows.Forms.TextBox();
-            this.cbxMCStart = new System.Windows.Forms.ComboBox();
+            this.tabPage5 = new System.Windows.Forms.TabPage();
+            this.lstConfigs = new System.Windows.Forms.ListBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -61,12 +67,14 @@
             this.tabPage2.SuspendLayout();
             this.tabPage4.SuspendLayout();
             this.tabPage1.SuspendLayout();
+            this.tabPage5.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
             // 
             this.tabControl1.Controls.Add(this.tabPage3);
             this.tabControl1.Controls.Add(this.tabPage2);
+            this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage1);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -90,6 +98,7 @@
             // 
             // panel2
             // 
+            this.panel2.Controls.Add(this.label7);
             this.panel2.Controls.Add(this.cbxNewBackup);
             this.panel2.Controls.Add(this.textBox1);
             this.panel2.Controls.Add(this.button4);
@@ -100,6 +109,7 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(380, 285);
             this.panel2.TabIndex = 1;
+            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // cbxNewBackup
             // 
@@ -120,7 +130,7 @@
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(138, 180);
+            this.textBox1.Size = new System.Drawing.Size(138, 161);
             this.textBox1.TabIndex = 6;
             // 
             // button4
@@ -150,6 +160,7 @@
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(220, 267);
             this.treeView1.TabIndex = 1;
+            this.treeView1.AfterSelect += new System.Windows.Forms.TreeViewEventHandler(this.treeView1_AfterSelect);
             // 
             // panel1
             // 
@@ -161,6 +172,20 @@
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(380, 41);
             this.panel1.TabIndex = 0;
+            // 
+            // cbxMCStart
+            // 
+            this.cbxMCStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbxMCStart.FormattingEnabled = true;
+            this.cbxMCStart.Items.AddRange(new object[] {
+            "Start Minecraft",
+            "without Launcher"});
+            this.cbxMCStart.Location = new System.Drawing.Point(177, 12);
+            this.cbxMCStart.Name = "cbxMCStart";
+            this.cbxMCStart.Size = new System.Drawing.Size(94, 21);
+            this.cbxMCStart.TabIndex = 3;
+            this.cbxMCStart.SelectedIndexChanged += new System.EventHandler(this.cbxMCStart_SelectedIndexChanged);
+            this.cbxMCStart.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbxMCStart_MouseDoubleClick);
             // 
             // checkBox1
             // 
@@ -197,9 +222,9 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(166, 35);
+            this.button2.Location = new System.Drawing.Point(255, 35);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(206, 23);
+            this.button2.Size = new System.Drawing.Size(117, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "Import format";
             this.button2.UseVisualStyleBackColor = true;
@@ -222,7 +247,7 @@
             this.listPlugins.ItemHeight = 17;
             this.listPlugins.Location = new System.Drawing.Point(11, 35);
             this.listPlugins.Name = "listPlugins";
-            this.listPlugins.Size = new System.Drawing.Size(149, 242);
+            this.listPlugins.Size = new System.Drawing.Size(238, 276);
             this.listPlugins.TabIndex = 0;
             // 
             // tabPage4
@@ -331,19 +356,64 @@
             this.txtLoginName.Size = new System.Drawing.Size(127, 20);
             this.txtLoginName.TabIndex = 1;
             // 
-            // cbxMCStart
+            // tabPage5
             // 
-            this.cbxMCStart.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbxMCStart.FormattingEnabled = true;
-            this.cbxMCStart.Items.AddRange(new object[] {
-            "Start Minecraft",
-            "without Launcher"});
-            this.cbxMCStart.Location = new System.Drawing.Point(177, 12);
-            this.cbxMCStart.Name = "cbxMCStart";
-            this.cbxMCStart.Size = new System.Drawing.Size(94, 21);
-            this.cbxMCStart.TabIndex = 3;
-            this.cbxMCStart.SelectedIndexChanged += new System.EventHandler(this.cbxMCStart_SelectedIndexChanged);
-            this.cbxMCStart.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.cbxMCStart_MouseDoubleClick);
+            this.tabPage5.Controls.Add(this.button1);
+            this.tabPage5.Controls.Add(this.propertyGrid1);
+            this.tabPage5.Controls.Add(this.label6);
+            this.tabPage5.Controls.Add(this.lstConfigs);
+            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.Name = "tabPage5";
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage5.Size = new System.Drawing.Size(380, 326);
+            this.tabPage5.TabIndex = 4;
+            this.tabPage5.Text = "Config Manager";
+            this.tabPage5.UseVisualStyleBackColor = true;
+            // 
+            // lstConfigs
+            // 
+            this.lstConfigs.FormattingEnabled = true;
+            this.lstConfigs.Location = new System.Drawing.Point(12, 33);
+            this.lstConfigs.Name = "lstConfigs";
+            this.lstConfigs.Size = new System.Drawing.Size(128, 277);
+            this.lstConfigs.TabIndex = 0;
+            this.lstConfigs.SelectedIndexChanged += new System.EventHandler(this.lstConfigs_SelectedIndexChanged);
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label6.Location = new System.Drawing.Point(8, 10);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(67, 20);
+            this.label6.TabIndex = 1;
+            this.label6.Text = "Configs:";
+            // 
+            // propertyGrid1
+            // 
+            this.propertyGrid1.Location = new System.Drawing.Point(146, 33);
+            this.propertyGrid1.Name = "propertyGrid1";
+            this.propertyGrid1.Size = new System.Drawing.Size(226, 249);
+            this.propertyGrid1.TabIndex = 2;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(146, 287);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(226, 23);
+            this.button1.TabIndex = 3;
+            this.button1.Text = "Save";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(234, 259);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(35, 13);
+            this.label7.TabIndex = 8;
+            this.label7.Text = "label7";
             // 
             // MainWindow
             // 
@@ -366,6 +436,8 @@
             this.tabPage4.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
+            this.tabPage5.ResumeLayout(false);
+            this.tabPage5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -398,6 +470,12 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.ListBox listPlugins;
         private System.Windows.Forms.ComboBox cbxMCStart;
+        private System.Windows.Forms.TabPage tabPage5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.ListBox lstConfigs;
+        private System.Windows.Forms.PropertyGrid propertyGrid1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label7;
     }
 }
 
