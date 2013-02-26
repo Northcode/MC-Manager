@@ -5,6 +5,7 @@ C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.exe
 C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\bin\Debug\MCManager.pdb
 C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.csprojResolveAssemblyReference.cache
 C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.ErrorPage.resources
+C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Form1.resources
 C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.InputBox.resources
 C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.Properties.Resources.resources
 C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.csproj.GenerateResource.Cache
@@ -32,5 +33,3 @@ C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.
 C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.LoginInput.resources
 C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.Properties.Resources.resources
 C:\Users\Andreas\Documents\Programming\MC-Manager\MCManager\obj\Debug\MCManager.csproj.GenerateResource.Cache
-C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.MainWindow.resources
-C:\Users\Jens\Documents\GitHub\MC-Manager\MCManager\obj\Debug\MCManager.LoginInput.resources
