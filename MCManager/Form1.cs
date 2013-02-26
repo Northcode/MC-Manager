@@ -22,7 +22,7 @@ namespace MCManager
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (tabControl1.SelectedIndex == 0 || tabControl1.SelectedIndex == 1 || tabControl1.SelectedIndex == 2)
+            if (tabControl1.SelectedIndex == 0 || tabControl1.SelectedIndex == 1 || tabControl1.SelectedIndex == 2 || tabControl1.SelectedIndex == 5)
             {
                 Size = new Size(404, 390);
             }
@@ -79,6 +79,10 @@ namespace MCManager
             UpdateBackupList(); 
             UpdatePluginList();
             UpdateConfigList();
+            foreach (string line in changelog.loglines)
+            {
+                richTextBox1.AppendText(" - " + line);
+            }
         }
 
         public void UpdateConfigList()
