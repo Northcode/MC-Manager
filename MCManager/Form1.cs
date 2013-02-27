@@ -18,6 +18,7 @@ namespace MCManager
         {
             InitializeComponent();
             Size = new Size(404, 390);
+            treeView1.ImageList = DataHolder.GetBackupImages();
         }
 
         private void tabControl1_SelectedIndexChanged(object sender, EventArgs e)
@@ -123,6 +124,7 @@ namespace MCManager
                         TreeNode n = new TreeNode(backup.GetName());
                         n.ToolTipText = backup.GetDescription();
                         n.Tag = i;
+                        n.ImageKey = format.GetImageName();
                         node.Nodes.Add(n);
                     }
                     i++;

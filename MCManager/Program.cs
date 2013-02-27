@@ -30,6 +30,7 @@ namespace MCManager
             Data.CheckStartupFolders();
             PluginLoader.LoadPlugins();
             DataHolder.LoadConfigs();
+            DataHolder.LoadImages();
 
             //Check for updates
             if (!DataHolder.GetConfig().Has("autoupdate"))

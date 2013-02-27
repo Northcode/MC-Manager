@@ -2,6 +2,6 @@ namespace MCManager
 {
 class v
 {
-public const string G_VERSION = "0.80";
+public const string G_VERSION = "0.81";
 }
 }

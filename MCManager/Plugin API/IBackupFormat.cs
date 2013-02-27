@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,5 +18,9 @@ namespace MCManager.Backups
         IBackup CreateBackup();
 
         string GetFormatName();
+
+        Image GetImage();
+
+        string GetImageName();
     }
 }
