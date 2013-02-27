@@ -5,6 +5,8 @@ using MCManager.Backups;
 using MCManager.Plugin_API;
 using System.Xml;
 using System;
+using System.Windows.Forms;
+using System.Drawing;
 
 namespace MCManager
 {
@@ -15,6 +17,7 @@ namespace MCManager
         private static List<IUpdater> updaters = new List<IUpdater>();
         internal static MainWindow mainWindow;
         private static List<Config> configs = new List<Config>();
+        private static ImageList BackupImages;
 
         public static void AddBackup(IBackup backup)
         {
@@ -196,6 +199,29 @@ namespace MCManager
         public static List<Config> GetConfigs()
         {
             return configs;
+        }
+
+        public static void AddBackupImage(string name, Image image)
+        {
+            BackupImages.Images.Add(image);
+            BackupImages.Images.Keys.Add(name);
+        }
+
+        internal static ImageList GetBackupImages()
+        {
+            return BackupImages;
+        }
+
+        internal static void LoadImages()
+        {
+            foreach (IBackupFormat  format in BackupLoader.formats)
+            {
+                Image img = format.GetImage();
+                if (img != null)
+                {
+                    AddBackupImage(format.GetImageName(), format.GetImage());
+                }
+            }
         }
     }
 }

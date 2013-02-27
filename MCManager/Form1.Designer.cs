@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainWindow));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage3 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -60,6 +62,9 @@
             this.propertyGrid1 = new System.Windows.Forms.PropertyGrid();
             this.button1 = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
+            this.tabPage6 = new System.Windows.Forms.TabPage();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.tabControl1.SuspendLayout();
             this.tabPage3.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -68,6 +73,7 @@
             this.tabPage4.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage5.SuspendLayout();
+            this.tabPage6.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -77,11 +83,13 @@
             this.tabControl1.Controls.Add(this.tabPage5);
             this.tabControl1.Controls.Add(this.tabPage4);
             this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage6);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tabControl1.ImageList = this.imageList1;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(388, 352);
+            this.tabControl1.Size = new System.Drawing.Size(388, 362);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.tabControl1_SelectedIndexChanged);
             // 
@@ -89,11 +97,13 @@
             // 
             this.tabPage3.Controls.Add(this.panel2);
             this.tabPage3.Controls.Add(this.panel1);
-            this.tabPage3.Location = new System.Drawing.Point(4, 22);
+            this.tabPage3.ImageKey = "drop-box-icon.png";
+            this.tabPage3.Location = new System.Drawing.Point(4, 23);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Size = new System.Drawing.Size(380, 326);
+            this.tabPage3.Size = new System.Drawing.Size(380, 335);
             this.tabPage3.TabIndex = 0;
             this.tabPage3.Text = "Backups";
+            this.tabPage3.ToolTipText = "Backups";
             this.tabPage3.UseVisualStyleBackColor = true;
             // 
             // panel2
@@ -107,7 +117,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 41);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(380, 285);
+            this.panel2.Size = new System.Drawing.Size(380, 294);
             this.panel2.TabIndex = 1;
             this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
@@ -212,10 +222,11 @@
             this.tabPage2.Controls.Add(this.button2);
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.listPlugins);
-            this.tabPage2.Location = new System.Drawing.Point(4, 22);
+            this.tabPage2.ImageKey = "Plugin.png";
+            this.tabPage2.Location = new System.Drawing.Point(4, 23);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(380, 326);
+            this.tabPage2.Size = new System.Drawing.Size(380, 335);
             this.tabPage2.TabIndex = 3;
             this.tabPage2.Text = "Plugin Manager";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -253,9 +264,10 @@
             // tabPage4
             // 
             this.tabPage4.Controls.Add(this.webBrowser1);
-            this.tabPage4.Location = new System.Drawing.Point(4, 22);
+            this.tabPage4.ImageKey = "Internet.png";
+            this.tabPage4.Location = new System.Drawing.Point(4, 23);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Size = new System.Drawing.Size(380, 326);
+            this.tabPage4.Size = new System.Drawing.Size(380, 335);
             this.tabPage4.TabIndex = 1;
             this.tabPage4.Text = "News";
             this.tabPage4.UseVisualStyleBackColor = true;
@@ -270,7 +282,7 @@
             this.webBrowser1.MinimumSize = new System.Drawing.Size(20, 20);
             this.webBrowser1.Name = "webBrowser1";
             this.webBrowser1.ScriptErrorsSuppressed = true;
-            this.webBrowser1.Size = new System.Drawing.Size(380, 326);
+            this.webBrowser1.Size = new System.Drawing.Size(380, 335);
             this.webBrowser1.TabIndex = 0;
             this.webBrowser1.Url = new System.Uri("http://mcupdate.tumblr.com/", System.UriKind.Absolute);
             // 
@@ -283,10 +295,11 @@
             this.tabPage1.Controls.Add(this.label2);
             this.tabPage1.Controls.Add(this.txtLoginPassword);
             this.tabPage1.Controls.Add(this.txtLoginName);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.ImageKey = "Key.png";
+            this.tabPage1.Location = new System.Drawing.Point(4, 23);
             this.tabPage1.Name = "tabPage1";
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(380, 326);
+            this.tabPage1.Size = new System.Drawing.Size(380, 335);
             this.tabPage1.TabIndex = 2;
             this.tabPage1.Text = "Login Info";
             this.tabPage1.UseVisualStyleBackColor = true;
@@ -362,10 +375,11 @@
             this.tabPage5.Controls.Add(this.propertyGrid1);
             this.tabPage5.Controls.Add(this.label6);
             this.tabPage5.Controls.Add(this.lstConfigs);
-            this.tabPage5.Location = new System.Drawing.Point(4, 22);
+            this.tabPage5.ImageKey = "Control Panel.png";
+            this.tabPage5.Location = new System.Drawing.Point(4, 23);
             this.tabPage5.Name = "tabPage5";
             this.tabPage5.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage5.Size = new System.Drawing.Size(380, 326);
+            this.tabPage5.Size = new System.Drawing.Size(380, 335);
             this.tabPage5.TabIndex = 4;
             this.tabPage5.Text = "Config Manager";
             this.tabPage5.UseVisualStyleBackColor = true;
@@ -415,11 +429,42 @@
             this.label7.TabIndex = 8;
             this.label7.Text = "label7";
             // 
+            // tabPage6
+            // 
+            this.tabPage6.Controls.Add(this.richTextBox1);
+            this.tabPage6.ImageKey = "text-file-icon.png";
+            this.tabPage6.Location = new System.Drawing.Point(4, 23);
+            this.tabPage6.Name = "tabPage6";
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage6.Size = new System.Drawing.Size(380, 335);
+            this.tabPage6.TabIndex = 5;
+            this.tabPage6.Text = "Changelog";
+            this.tabPage6.UseVisualStyleBackColor = true;
+            // 
+            // richTextBox1
+            // 
+            this.richTextBox1.Location = new System.Drawing.Point(8, 6);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(364, 312);
+            this.richTextBox1.TabIndex = 0;
+            this.richTextBox1.Text = "";
+            // 
+            // imageList1
+            // 
+            this.imageList1.ImageStream = ((System.Windows.Forms.ImageListStreamer)(resources.GetObject("imageList1.ImageStream")));
+            this.imageList1.TransparentColor = System.Drawing.Color.Transparent;
+            this.imageList1.Images.SetKeyName(0, "Control Panel.png");
+            this.imageList1.Images.SetKeyName(1, "drop-box-icon.png");
+            this.imageList1.Images.SetKeyName(2, "Internet.png");
+            this.imageList1.Images.SetKeyName(3, "Key.png");
+            this.imageList1.Images.SetKeyName(4, "text-file-icon.png");
+            this.imageList1.Images.SetKeyName(5, "Plugin.png");
+            // 
             // MainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(388, 352);
+            this.ClientSize = new System.Drawing.Size(388, 362);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "MainWindow";
@@ -438,6 +483,7 @@
             this.tabPage1.PerformLayout();
             this.tabPage5.ResumeLayout(false);
             this.tabPage5.PerformLayout();
+            this.tabPage6.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -476,6 +522,9 @@
         private System.Windows.Forms.PropertyGrid propertyGrid1;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TabPage tabPage6;
+        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.ImageList imageList1;
     }
 }
 
