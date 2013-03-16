@@ -7,7 +7,7 @@ namespace MCMUpdate
 {
     public partial class Form1 : Form
     {
-        string updateConf = Environment.GetFolderPath(Environment.SpecialFolder.ApplicationData) + "\\.mcm\\update.conf";
+        string updateConf = "update.conf";
 
         public Form1()
         {
