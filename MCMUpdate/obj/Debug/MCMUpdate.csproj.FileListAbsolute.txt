@@ -7,3 +7,12 @@ J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.Properties.Resources.resourc
 J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.csproj.GenerateResource.Cache
 J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.exe
 J:\Desktop\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.pdb
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\bin\Debug\MCMUpdate.exe.config
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\bin\Debug\MCMUpdate.exe
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\bin\Debug\MCMUpdate.pdb
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.csprojResolveAssemblyReference.cache
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.Form1.resources
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.Properties.Resources.resources
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.csproj.GenerateResource.Cache
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.exe
+C:\Users\Andreas\Documents\Programming\MC-Manager\MCMUpdate\obj\Debug\MCMUpdate.pdb
