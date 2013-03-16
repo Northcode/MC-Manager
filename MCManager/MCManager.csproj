@@ -47,6 +47,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BackupLoader.cs" />
+    <Compile Include="changelog.cs" />
+    <Compile Include="DictionaryPropertyDescriptor.cs" />
+    <Compile Include="DictionaryPropertyGridAdapter.cs" />
     <Compile Include="LoginInput.cs">
       <SubType>Form</SubType>
     </Compile>

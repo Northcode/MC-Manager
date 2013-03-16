@@ -11,31 +11,51 @@ namespace MCManager
 {
     internal static class Program
     {
+        static void UpdateThread()
+        {
+            
+        }
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
         private static void Main()
         {
+            //Init windows visuals
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+
+            //Init data & load plugins
             Data.CheckStartupFolders();
             PluginLoader.LoadPlugins();
-            if (MessageBox.Show("Check for updates?", "Update", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            DataHolder.LoadConfigs();
+            DataHolder.LoadImages();
+
+            //Check for updates
+            if (!DataHolder.GetConfig().Has("autoupdate"))
             {
-                Data.CheckForUpdate();
-                DataHolder.UpdatePlugins();
-                Data.PreformUpdate();
+                DataHolder.GetConfig().Set("autoupdate", Plugin_API.Config.Type.Bool, false);
             }
-            if (Data.updateData.ToString() != "")
+
+            if ((bool)DataHolder.GetConfig().Get("autoupdate"))
             {
-                DialogResult r = MessageBox.Show("New Update Available! Download?", "Update", MessageBoxButtons.YesNo);
-                if (r == DialogResult.Yes)
-                {
-                    Process.Start(Data.updaterExe);
-                    Thread.Sleep(100);
-                    return;
-                }
+                Thread updateThread = new Thread(() => {
+                    Data.CheckForUpdate();
+                    DataHolder.UpdatePlugins();
+                    Data.PreformUpdate();
+                    if (Data.updateData.ToString() != "")
+                    {
+                        DialogResult r = MessageBox.Show("New Update Available! Download?", "Update", MessageBoxButtons.YesNo);
+                        if (r == DialogResult.Yes)
+                        {
+                            Process.Start(Data.updaterExe);
+                            Thread.Sleep(100);
+                            Application.Exit();
+                        }
+                    }
+                });
+                updateThread.Start();
             }
             if (File.Exists(Data.logininfo))
             {
@@ -61,6 +81,7 @@ namespace MCManager
             {
                 if (File.Exists(Data.logininfo)) File.Delete(Data.logininfo);
             }
+            DataHolder.SaveConfigs();
         }
     }
 }
