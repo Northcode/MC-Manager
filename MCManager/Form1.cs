@@ -108,6 +108,7 @@ namespace MCManager
                     if (backup.GetFormat().GetType() == format.GetType())
                     {
                         TreeNode n = new TreeNode(backup.GetName());
+                        n.Tag = DataHolder.GetBackups().IndexOf(backup);
                         n.ToolTipText = backup.GetDescription();
                         node.Nodes.Add(n);
                     }
@@ -118,7 +119,7 @@ namespace MCManager
 
         private void btnRestoreBackup_Click(object sender, EventArgs e)
         {
-            DataHolder.GetBackups().FindAll(b => treeView1.SelectedNode.Text == b.GetName()).ForEach(b => b.Extract());
+            DataHolder.GetBackups()[(int)treeView1.SelectedNode.Tag].Extract();
             MessageBox.Show("Backup restored");
         }
 
