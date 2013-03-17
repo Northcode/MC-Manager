@@ -66,6 +66,7 @@ namespace MCManager
             //{
                 DataHolder.mainWindow = new MainWindow();
                 Application.Run(DataHolder.mainWindow);
+                DataHolder.StopPlugins();
             //}
             //catch (Exception ex)
             //{

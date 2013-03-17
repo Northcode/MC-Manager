@@ -17,6 +17,7 @@ namespace MCManager
         private static List<IUpdater> updaters = new List<IUpdater>();
         internal static MainWindow mainWindow;
         private static List<Config> configs = new List<Config>();
+        private static List<IPlugin> plugins = new List<IPlugin>();
         private static ImageList BackupImages;
 
         public static void AddBackup(IBackup backup)
@@ -222,6 +223,21 @@ namespace MCManager
                     AddBackupImage(format.GetImageName(), format.GetImage());
                 }
             }
+        }
+
+        internal static void AddPlugin(IPlugin plugin)
+        {
+            plugins.Add(plugin);
+        }
+
+        internal static void StartPlugins(MainWindow wnd)
+        {
+            plugins.ForEach(p => p.Start(wnd));
+        }
+
+        internal static void StopPlugins()
+        {
+            plugins.ForEach(p => p.Stop());
         }
     }
 }

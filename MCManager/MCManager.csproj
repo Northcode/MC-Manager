@@ -82,6 +82,7 @@
       <DependentUpon>InputBox.cs</DependentUpon>
     </Compile>
     <Compile Include="LoginInfo.cs" />
+    <Compile Include="Plugin API\IPlugin.cs" />
     <Compile Include="Plugin API\IUpdater.cs" />
     <Compile Include="PluginLoader.cs" />
     <Compile Include="Program.cs" />

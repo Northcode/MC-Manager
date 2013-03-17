@@ -28,6 +28,11 @@ namespace MCManager
                     updater.SetPath(file);
                     DataHolder.AddUpdater(updater);
                 }
+                if (typeof(IPlugin).IsAssignableFrom(t))
+                {
+                    IPlugin plugin = Activator.CreateInstance(t) as IPlugin;
+                    DataHolder.AddPlugin(plugin);
+                }
             }
         }
 

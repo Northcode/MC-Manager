@@ -68,6 +68,7 @@ namespace MCManager
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            DataHolder.StartPlugins(this);
             cbxNewBackup.Items.Clear();
             cbxNewBackup.Items.Add("New Backup");
             foreach (IBackupFormat format in BackupLoader.formats)
